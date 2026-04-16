@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily J | Tuniverse Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'display': ['Syne', 'sans-serif'], 'body': ['Space Grotesk', 'sans-serif'] },
+                    colors: { 'label-gold': '#D4AF37', 'label-red': '#DC2626', 'label-silver': '#C0C0C0', 'void': '#050505', 'concrete': '#0a0a0a' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; overflow-x: hidden; }
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%); }
+        .silver-gradient { background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 50%, #C0C0C0 100%); }
+    </style>
+</head>
+<body class="font-body antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-void/80 backdrop-blur-sm border-b border-label-gold/10">
+        <a href="../index.html" class="font-display font-bold text-2xl tracking-tighter hover:text-label-gold transition-colors flex items-center gap-3">
+            <img src="../logo.png" alt="Tuniverse Inc." class="w-10 h-10 rounded-full object-cover" />
+            TUNIVERSE<span class="text-label-red">.</span>
+        </a>
+        <a href="../index.html#artists" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors">← All Artists</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-end pb-20 pt-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="lily-j.png" alt="Lily J" class="w-full h-full object-cover opacity-40" />
+            <div class="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto w-full">
+            <p class="text-label-silver text-sm uppercase tracking-[0.3em] mb-4">Singer / Artist</p>
+            <h1 class="font-display text-7xl md:text-9xl font-bold leading-none mb-6">LILY J</h1>
+            <p class="text-label-silver/70 max-w-xl text-lg leading-relaxed">
+                Ethereal vocals, magnetic presence. Lily J's sound transcends genres — from soulful ballads to energetic anthems, she does it all effortlessly.
+            </p>
+            <div class="flex gap-4 mt-8">
+                <a href="#music" class="px-8 py-4 gold-gradient text-void font-bold uppercase tracking-widest hover:scale-105 transition-transform">Listen Now</a>
+                <a href="#contact" class="px-8 py-4 border border-label-silver/30 font-bold uppercase tracking-widest hover:border-label-silver hover:text-label-silver transition-all">Book Lily J</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio -->
+    <section class="py-24 px-6 bg-concrete">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <p class="text-label-silver text-sm uppercase tracking-widest mb-4">About</p>
+                <h2 class="font-display text-5xl font-bold mb-6">THE <span class="text-label-gold">VOICE</span></h2>
+                <p class="text-label-silver/70 leading-relaxed mb-4">
+                    Lily J is one of the most captivating voices on the Tuniverse Inc. roster. With a natural talent for melody and an instinct for emotional delivery, she brings a unique energy to every project she touches.
+                </p>
+                <p class="text-label-silver/70 leading-relaxed mb-4">
+                    Collaborating closely with VA Allstarz, Lily J's releases blend contemporary R&B, soul, and pop in a way that feels both fresh and timeless. Her versatility makes her a standout in any genre.
+                </p>
+                <p class="text-label-silver/70 leading-relaxed">
+                    With new music on the way, Lily J is poised to make a major impact on the independent music scene.
+                </p>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-1 silver-gradient rounded-2xl blur opacity-20"></div>
+                <img src="lily-j.png" alt="Lily J" class="relative rounded-2xl w-full object-cover border border-label-silver/20" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="py-24 px-6 bg-void">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-label-silver text-sm uppercase tracking-widest mb-4">Discography</p>
+            <h2 class="font-display text-5xl font-bold mb-4">MUSIC <span class="text-label-gold">& RELEASES</span></h2>
+            <p class="text-label-silver/60 mb-12">Stream Lily J on SoundCloud</p>
+
+            <div class="relative">
+                <div class="absolute -inset-1 silver-gradient rounded-2xl blur opacity-20"></div>
+                <div class="relative bg-void p-4 rounded-2xl border border-label-silver/20">
+                    <div class="bg-concrete rounded-xl p-12 text-label-silver/40">
+                        <p class="text-4xl mb-4">🎵</p>
+                        <p class="font-display text-xl">Music coming soon</p>
+                        <p class="text-sm mt-2">SoundCloud embed will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6 bg-concrete text-center">
+        <p class="text-label-gold text-sm uppercase tracking-widest mb-4">Bookings & Features</p>
+        <h2 class="font-display text-5xl font-bold mb-6">WORK WITH <span class="text-label-silver">LILY J</span></h2>
+        <p class="text-label-silver/60 max-w-md mx-auto mb-8">Features, bookings, and collaborations — reach out through the label.</p>
+        <a href="../index.html#contact" class="px-8 py-4 gold-gradient text-void font-bold uppercase tracking-widest hover:scale-105 transition-transform inline-block">Contact Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-label-gold/10 text-center">
+        <p class="text-label-silver/40 text-sm">© 2025 Tuniverse Inc. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

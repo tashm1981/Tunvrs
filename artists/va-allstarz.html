@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VA Allstarz | Tuniverse Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'display': ['Syne', 'sans-serif'], 'body': ['Space Grotesk', 'sans-serif'] },
+                    colors: { 'label-gold': '#D4AF37', 'label-red': '#DC2626', 'label-silver': '#C0C0C0', 'void': '#050505', 'concrete': '#0a0a0a' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; overflow-x: hidden; }
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%); }
+    </style>
+</head>
+<body class="font-body antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-void/80 backdrop-blur-sm border-b border-label-gold/10">
+        <a href="../index.html" class="font-display font-bold text-2xl tracking-tighter hover:text-label-gold transition-colors flex items-center gap-3">
+            <img src="../logo.png" alt="Tuniverse Inc." class="w-10 h-10 rounded-full object-cover" />
+            TUNIVERSE<span class="text-label-red">.</span>
+        </a>
+        <a href="../index.html#artists" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors">← All Artists</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-end pb-20 pt-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="va-allstarz.png" alt="VA Allstarz" class="w-full h-full object-cover opacity-40" />
+            <div class="absolute inset-0 bg-gradient-to-t from-void via-void/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto w-full">
+            <p class="text-label-gold text-sm uppercase tracking-[0.3em] mb-4">Production Group</p>
+            <h1 class="font-display text-7xl md:text-9xl font-bold leading-none mb-6">VA<br/>ALLSTARZ</h1>
+            <p class="text-label-silver/70 max-w-xl text-lg leading-relaxed">
+                The premier production group behind Tuniverse Inc. Known for crafting hard-hitting beats, lush soundscapes, and genre-defying productions that push the boundaries of modern music.
+            </p>
+            <div class="flex gap-4 mt-8">
+                <a href="#music" class="px-8 py-4 gold-gradient text-void font-bold uppercase tracking-widest hover:scale-105 transition-transform">Listen Now</a>
+                <a href="#contact" class="px-8 py-4 border border-label-silver/30 font-bold uppercase tracking-widest hover:border-label-gold hover:text-label-gold transition-all">Book VA Allstarz</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio -->
+    <section class="py-24 px-6 bg-concrete">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <p class="text-label-gold text-sm uppercase tracking-widest mb-4">About</p>
+                <h2 class="font-display text-5xl font-bold mb-6">THE SOUND <span class="text-label-gold">ARCHITECTS</span></h2>
+                <p class="text-label-silver/70 leading-relaxed mb-4">
+                    VA Allstarz is the production powerhouse at the heart of Tuniverse Inc. With a catalog spanning multiple genres and a reputation for delivering radio-ready hits, they are the driving creative force behind the label's signature sound.
+                </p>
+                <p class="text-label-silver/70 leading-relaxed mb-4">
+                    From studio sessions to live performances, VA Allstarz brings an unmatched level of energy and professionalism. Their productions have supported artists across the roster and beyond, cementing their status as one of the most sought-after production teams in the independent music scene.
+                </p>
+                <p class="text-label-silver/70 leading-relaxed">
+                    Available for production, mixing, mastering, and live performance bookings.
+                </p>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-1 gold-gradient rounded-2xl blur opacity-20"></div>
+                <img src="va-allstarz.png" alt="VA Allstarz" class="relative rounded-2xl w-full object-cover border border-label-gold/20" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="py-24 px-6 bg-void">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-label-red text-sm uppercase tracking-widest mb-4">Discography</p>
+            <h2 class="font-display text-5xl font-bold mb-4">MUSIC <span class="text-label-gold">& RELEASES</span></h2>
+            <p class="text-label-silver/60 mb-12">Stream VA Allstarz productions on SoundCloud</p>
+
+            <div class="relative">
+                <div class="absolute -inset-1 gold-gradient rounded-2xl blur opacity-20"></div>
+                <div class="relative bg-void p-4 rounded-2xl border border-label-gold/20">
+                    <div class="bg-concrete rounded-xl p-12 text-label-silver/40">
+                        <p class="text-4xl mb-4">🎵</p>
+                        <p class="font-display text-xl">Music coming soon</p>
+                        <p class="text-sm mt-2">SoundCloud embed will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 px-6 bg-concrete border-y border-label-gold/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="font-display text-5xl font-bold text-label-gold mb-2">50+</p>
+                <p class="text-label-silver/60 text-sm uppercase tracking-widest">Tracks Produced</p>
+            </div>
+            <div>
+                <p class="font-display text-5xl font-bold text-label-gold mb-2">10+</p>
+                <p class="text-label-silver/60 text-sm uppercase tracking-widest">Artists Worked With</p>
+            </div>
+            <div>
+                <p class="font-display text-5xl font-bold text-label-gold mb-2">5+</p>
+                <p class="text-label-silver/60 text-sm uppercase tracking-widest">Years Active</p>
+            </div>
+            <div>
+                <p class="font-display text-5xl font-bold text-label-gold mb-2">∞</p>
+                <p class="text-label-silver/60 text-sm uppercase tracking-widest">Genre Possibilities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6 bg-void text-center">
+        <p class="text-label-gold text-sm uppercase tracking-widest mb-4">Bookings & Collabs</p>
+        <h2 class="font-display text-5xl font-bold mb-6">WORK WITH <span class="text-label-gold">VA ALLSTARZ</span></h2>
+        <p class="text-label-silver/60 max-w-md mx-auto mb-8">Interested in a production, feature, or live booking? Get in touch.</p>
+        <a href="../index.html#contact" class="px-8 py-4 gold-gradient text-void font-bold uppercase tracking-widest hover:scale-105 transition-transform inline-block">Contact Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-label-gold/10 text-center">
+        <p class="text-label-silver/40 text-sm">© 2025 Tuniverse Inc. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
