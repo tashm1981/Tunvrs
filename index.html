@@ -199,7 +199,7 @@
     <div class="custom-cursor hidden md:block" id="cursor"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center">
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-void/80 backdrop-blur-sm border-b border-label-gold/10">
         <div class="font-display font-bold text-2xl tracking-tighter hover:text-label-gold transition-colors cursor-pointer flex items-center gap-3">
             <img src="logo.png" alt="Tuniverse Inc." class="w-10 h-10 rounded-full object-cover" />
             TUNIVERSE<span class="text-label-red">.</span>
@@ -415,5 +415,40 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100');
+                menuBtn.children[0].style.transform = 'translateY(8px) rotate(45deg)';
+                menuBtn.children[1].style.transform = 'translateY(-0px) rotate(-45deg)';
+                menuBtn.children[1].style.width = '2rem';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100');
+                menuBtn.children[0].style.transform = '';
+                menuBtn.children[1].style.transform = '';
+                menuBtn.children[1].style.width = '';
+            }
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100');
+                menuBtn.children[0].style.transform = '';
+                menuBtn.children[1].style.transform = '';
+                menuBtn.children[1].style.width = '';
+            });
+        });
+    </script>
 </body>
 </html>
