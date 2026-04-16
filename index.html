@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOCTURNAL SOUND | Independent Music Label</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Syne', 'sans-serif'],
+                        'body': ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'label-gold': '#D4AF37',
+                        'label-red': '#DC2626',
+                        'label-silver': '#C0C0C0',
+                        'void': '#050505',
+                        'concrete': '#0a0a0a',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-gold': 'pulse-gold 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-gold': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(212, 175, 55, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(212, 175, 55, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .text-stroke {
+            -webkit-text-stroke: 2px #ffffff;
+            color: transparent;
+        }
+        
+        .text-stroke-gold {
+            -webkit-text-stroke: 2px #D4AF37;
+            color: transparent;
+        }
+        
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .magnetic-btn {
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .vinyl-spin {
+            animation: spin 4s linear infinite;
+            animation-play-state: paused;
+        }
+        
+        .vinyl-container:hover .vinyl-spin {
+            animation-play-state: running;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .glitch-text {
+            position: relative;
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 #DC2626;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 #C0C0C0;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(12px, 9999px, 52px, 0); }
+            20% { clip: rect(65px, 9999px, 91px, 0); }
+            40% { clip: rect(28px, 9999px, 86px, 0); }
+            60% { clip: rect(53px, 9999px, 12px, 0); }
+            80% { clip: rect(89px, 9999px, 43px, 0); }
+            100% { clip: rect(34px, 9999px, 67px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 99px, 0); }
+            20% { clip: rect(12px, 9999px, 45px, 0); }
+            40% { clip: rect(78px, 9999px, 23px, 0); }
+            60% { clip: rect(34px, 9999px, 78px, 0); }
+            80% { clip: rect(56px, 9999px, 34px, 0); }
+            100% { clip: rect(23px, 9999px, 89px, 0); }
+        }
+        
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D4AF37;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.2s, width 0.2s, height 0.2s;
+            mix-blend-mode: difference;
+        }
+        
+        .custom-cursor.hover {
+            transform: scale(2.5);
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #DC2626;
+        }
+        
+        .scroll-indicator {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
+        }
+        
+        .silver-gradient {
+            background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 50%, #C0C0C0 100%);
+        }
+        
+        .soundcloud-container iframe {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-label-gold selection:text-void">
+
+    <div class="grain-overlay"></div>
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center">
+        <div class="font-display font-bold text-2xl tracking-tighter hover:text-label-gold transition-colors cursor-pointer">
+            NOCTURNAL<span class="text-label-red">.</span>
+        </div>
+        
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="#artists" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Artists</a>
+            <a href="#releases" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Releases</a>
+            <a href="#player" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Listen</a>
+            <a href="#about" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">About</a>
+            <a href="#contact" class="px-6 py-2 border border-label-gold text-label-gold rounded-full text-sm uppercase tracking-widest hover:bg-label-gold hover:text-void transition-all magnetic-btn">Contact</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden flex flex-col gap-1.5 z-50">
+            <span class="w-8 h-0.5 bg-white transition-all"></span>
+            <span class="w-6 h-0.5 bg-white transition-all"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-void z-40 flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500">
+        <a href="#artists" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Artists</a>
+        <a href="#releases" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Releases</a>
+        <a href="#player" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Listen</a>
+        <a href="#about" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">About</a>
+        <a href="#contact" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden clip-diagonal bg-void">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-label-gold/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-label-red/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-label-silver/5 rounded-full blur-2xl animate-float" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-7xl mx-auto">
+            <p class="text-label-gold text-sm uppercase tracking-[0.3em] mb-6 opacity-0 translate-y-10" id="heroSubtitle">Independent Music Label</p>
+            
+            <h1 class="font-display font-bold text-6xl md:text-8xl lg:text-9xl leading-none mb-8">
+                <span class="block overflow-hidden">
+                    <span class="block translate-y-full" id="heroLine1">SOUND</span>
+                </span>
+                <span class="block overflow-hidden text-stroke-gold">
+                    <span class="block translate-y-full" id="heroLine2">WITHOUT</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="block translate-y-full text-label-red" id="heroLine3">LIMITS</span>
+                </span>
+            </h1>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-12 opacity-0" id="heroCta">
+                <button class="px-8 py-4 gold-gradient text-void font-bold uppercase tracking-widest hover:scale-105 transition-transform magnetic-btn shadow-lg shadow-label-gold/20">
+                    Latest Releases
+                </button>
+                <button class="px-8 py-4 border border-label-silver/30 font-bold uppercase tracking-widest hover:border-label-red hover:text-label-red transition-all magnetic-btn">
+                    View Roster
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-6 scroll-indicator text-xs uppercase tracking-widest opacity-50 hidden md:block text-label-silver">
+            Scroll to explore
+        </div>
+
+        <div class="absolute bottom-10 right-6 flex gap-4">
+            <a href="#" class="w-10 h-10 border border-label-gold/30 rounded-full flex items-center justify-center hover:border-label-gold hover:text-label-gold transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 border border-label-gold/30 rounded-full flex items-center justify-center hover:border-label-gold hover:text-label-gold transition-all">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="gold-gradient text-void py-4 overflow-hidden -rotate-1 scale-105 z-20 relative">
+        <div class="flex whitespace-nowrap animate-marquee font-display font-bold text-2xl uppercase tracking-widest">
+            <span class="mx-8">New Release: Midnight Echoes EP</span>
+            <span class="mx-8 text-label-red">•</span>
+            <span class="mx-8">Sign Up for Newsletter</span>
+            <span class="mx-8 text-label-red">•</span>
+            <span class="mx-8">Now Booking for 2026</span>
+            <span class="mx-8 text-label-red">•</span>
+            <span class="mx-8">New Release: Midnight Echoes EP</span>
+            <span class="mx-8 text-label-red">•</span>
+            <span class="mx-8">Sign Up for Newsletter</span>
+            <span class="mx-8 text-label-red">•</span>
+            <span class="mx-8">Now Booking for 2026</span>
+            <span class="mx-8 text-label-red">•</span>
+        </div>
+    </div>
+
+    <!-- SoundCloud Player Section -->
+    <section id="player" class="py-24 px-6 bg-concrete relative">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-label-gold to-transparent opacity-30"></div>
+        
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-label-red text-sm uppercase tracking-widest mb-4">Now Playing</p>
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-4">LISTEN <span class="text-label-gold">NOW</span></h2>
+                <p class="text-label-silver/60 max-w-md mx-auto">Stream our latest releases and curated playlists directly from SoundCloud</p>
+            </div>
+
+            <div class="soundcloud-container relative">
+                <div class="absolute -inset-1 gold-gradient rounded-2xl blur opacity-20 animate-pulse-gold"></div>
+                <div class="relative bg-void p-2 rounded-2xl border border-label-gold/20">
+                    <iframe 
+                        height="450" 
+                        scrolling="no" 
+                        frameborder="no" 
+                        allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1708545882&color=%23D4AF37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-6 mt-8">
+                <button class="flex items-center gap-2 px-6 py-3 border border-label-gold/30 rounded-full text-label-gold hover:bg-label-gold hover:text-void transition-all text-sm uppercase tracking-widest">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02z"/></svg>
+                    Follow on SoundCloud
+                </button>
+                <button class="flex items-center gap-2 px-6 py-3 border border-label-red/30 rounded-full text-label-red hover:bg-label-red hover:text-white transition-all text-sm uppercase tracking-widest">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02z"/></svg>
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists" class="py-32 px-6 relative bg-void">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div>
+                    <p class="text-label-gold text-sm uppercase tracking-widest mb-4">Roster</p>
+                    <h2 class="font-display text-5xl md:text-7xl font-bold glitch-text" data-text="ARTISTS">ARTISTS</h2>
+                </div>
+                <p class="text-label-silver/60 max-w-md mt-6 md:mt-0 text-sm leading-relaxed">
+                    Curating the finest in electronic, indie, and experimental sounds. Our artists push boundaries and redefine genres.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Artist 1 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer hover-lift artist-card border border-label-gold/10">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+                        <div class="absolute inset-0 bg-label-gold/5 group-hover:bg-label-gold/0 transition-all duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-32 h-32 rounded-full bg-black/40 backdrop-blur-sm border border-label-gold/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <span class="font-display text-2xl font-bold text-label-gold">VS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/95 to-transparent translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <h3 class="font-display text-2xl font-bold mb-1">Void Strider</h3>
+                        <p class="text-label-gold text-sm uppercase tracking-widest">Electronic / Ambient</p>
+                    </div>
+                </div>
+
+                <!-- Artist 2 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-poin
