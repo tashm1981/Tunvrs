@@ -207,9 +207,9 @@
         
         <div class="hidden md:flex gap-8 items-center">
             <a href="#artists" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Artists</a>
-            <a href="#releases" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Releases</a>
-            <a href="#player" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Listen</a>
-            <a href="#about" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">About</a>
+            <a href="#radio" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Radio</a>
+            <a href="#news" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">News</a>
+            <a href="#partners" class="text-sm uppercase tracking-widest hover:text-label-gold transition-colors magnetic-btn">Partners</a>
             <a href="#contact" class="px-6 py-2 border border-label-gold text-label-gold rounded-full text-sm uppercase tracking-widest hover:bg-label-gold hover:text-void transition-all magnetic-btn">Contact</a>
         </div>
 
@@ -222,9 +222,9 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed inset-0 bg-void z-40 flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500">
         <a href="#artists" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Artists</a>
-        <a href="#releases" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Releases</a>
-        <a href="#player" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Listen</a>
-        <a href="#about" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">About</a>
+        <a href="#radio" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Radio</a>
+        <a href="#news" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">News</a>
+        <a href="#partners" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Partners</a>
         <a href="#contact" class="font-display text-4xl hover:text-label-gold transition-colors mobile-link">Contact</a>
     </div>
 
@@ -384,6 +384,369 @@
         </div>
     </section>
 
+    <!-- AI Hybrid Radio Section -->
+    <section id="radio" class="py-32 px-6 bg-concrete relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-label-gold to-transparent opacity-30"></div>
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-label-gold/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-label-red/5 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-label-gold text-sm uppercase tracking-widest mb-4">Live & AI-Powered</p>
+                <h2 class="font-display text-5xl md:text-7xl font-bold mb-4">TUNIVERSE <span class="text-label-gold">RADIO</span></h2>
+                <p class="text-label-silver/60 max-w-xl mx-auto text-sm leading-relaxed">A hybrid experience — real artist tracks blended seamlessly with AI-generated music. Curated. Continuous. Always On.</p>
+            </div>
+
+            <!-- Radio Player UI -->
+            <div class="relative max-w-2xl mx-auto">
+                <div class="absolute -inset-2 gold-gradient rounded-3xl blur opacity-20 animate-pulse-gold"></div>
+                <div class="relative bg-void border border-label-gold/20 rounded-3xl p-8">
+                    <!-- Now Playing Display -->
+                    <div class="flex items-center gap-6 mb-8">
+                        <div class="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-label-gold/20 to-label-red/20 border border-label-gold/20 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-label-gold/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                            <div class="absolute inset-0 bg-label-gold/5 animate-pulse"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2 h-2 bg-label-gold rounded-full animate-pulse"></span>
+                                <span class="text-label-gold text-xs uppercase tracking-widest">Live Now</span>
+                            </div>
+                            <p class="font-display text-xl font-bold truncate" id="radioTrackName">Tuniverse Radio</p>
+                            <p class="text-label-silver/50 text-sm" id="radioArtistName">Human + AI Curated Mix</p>
+                        </div>
+                        <!-- Waveform animation -->
+                        <div class="flex items-center gap-0.5 h-8" id="radioWaveform">
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:40%;animation-delay:0s"></div>
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:70%;animation-delay:0.1s"></div>
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:100%;animation-delay:0.2s"></div>
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:60%;animation-delay:0.3s"></div>
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:80%;animation-delay:0.4s"></div>
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:40%;animation-delay:0.5s"></div>
+                            <div class="w-1 bg-label-gold rounded-full animate-[wave_1s_ease-in-out_infinite]" style="height:90%;animation-delay:0.6s"></div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="mb-6">
+                        <div class="w-full h-1 bg-label-gold/10 rounded-full overflow-hidden">
+                            <div class="h-full bg-label-gold rounded-full w-0 transition-all duration-1000" id="radioProgress"></div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="flex items-center justify-center gap-6 mb-6">
+                        <button class="text-label-silver/40 hover:text-label-silver transition-colors" title="Previous">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+                        </button>
+                        <button id="radioPlayBtn" class="w-14 h-14 bg-label-gold rounded-full flex items-center justify-center hover:bg-label-gold/80 transition-all hover:scale-105 text-void">
+                            <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24" id="radioPlayIcon"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <button class="text-label-silver/40 hover:text-label-silver transition-colors" title="Next">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Volume -->
+                    <div class="flex items-center gap-3">
+                        <svg class="w-4 h-4 text-label-silver/40 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                        <input type="range" min="0" max="100" value="75" id="radioVolume" class="flex-1 h-1 rounded-full appearance-none cursor-pointer accent-label-gold bg-label-gold/20">
+                        <svg class="w-4 h-4 text-label-silver/40 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Station Info -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div class="text-center p-6 border border-label-gold/10 rounded-xl bg-void/40">
+                    <div class="w-10 h-10 rounded-full bg-label-gold/10 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-5 h-5 text-label-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                    </div>
+                    <p class="font-display font-bold text-lg mb-1">Human Tracks</p>
+                    <p class="text-label-silver/50 text-sm">Original music from Tuniverse artists and roster</p>
+                </div>
+                <div class="text-center p-6 border border-label-gold/10 rounded-xl bg-void/40">
+                    <div class="w-10 h-10 rounded-full bg-label-gold/10 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-5 h-5 text-label-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                    </div>
+                    <p class="font-display font-bold text-lg mb-1">AI Blends</p>
+                    <p class="text-label-silver/50 text-sm">AI-generated transitions and mood-matched fills</p>
+                </div>
+                <div class="text-center p-6 border border-label-gold/10 rounded-xl bg-void/40">
+                    <div class="w-10 h-10 rounded-full bg-label-gold/10 flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-5 h-5 text-label-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+                    </div>
+                    <p class="font-display font-bold text-lg mb-1">Always Live</p>
+                    <p class="text-label-silver/50 text-sm">24/7 curated programming, zero dead air</p>
+                </div>
+            </div>
+
+            <p class="text-center text-label-silver/30 text-xs mt-8 uppercase tracking-widest">Full live stream coming soon — station build in progress</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-32 px-6 bg-void relative">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-label-red to-transparent opacity-30"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div>
+                    <p class="text-label-red text-sm uppercase tracking-widest mb-4">Latest</p>
+                    <h2 class="font-display text-5xl md:text-7xl font-bold">NEWS <span class="text-label-gold">&</span> UPDATES</h2>
+                </div>
+                <p class="text-label-silver/60 max-w-md mt-6 md:mt-0 text-sm leading-relaxed">Industry news, label updates, and artist announcements — everything happening in the Tuniverse.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Label Update Post (manual type) -->
+                <article class="group border border-label-gold/10 rounded-xl overflow-hidden bg-void hover:border-label-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[16/9] bg-gradient-to-br from-label-gold/10 to-void flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-label-gold/5 to-label-red/5"></div>
+                        <svg class="w-16 h-16 text-label-gold/20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-label-gold text-void text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Label Update</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-label-silver/40 text-xs uppercase tracking-widest mb-3">April 2026</p>
+                        <h3 class="font-display text-xl font-bold mb-3 group-hover:text-label-gold transition-colors">Tuniverse Inc. Officially Launches — Roster Revealed</h3>
+                        <p class="text-label-silver/60 text-sm leading-relaxed mb-4">We're live. Three artists, one vision. VA Allstarz, Levar Tha Don, and Lily J join the Tuniverse family as we open our doors to the independent music world.</p>
+                        <div class="flex items-center gap-2 text-label-gold text-xs uppercase tracking-widest font-bold cursor-pointer hover:gap-3 transition-all">
+                            <span>Read More</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Industry Article 1 -->
+                <article class="group border border-label-gold/10 rounded-xl overflow-hidden bg-void hover:border-label-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[16/9] bg-gradient-to-br from-blue-900/20 to-void flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
+                        <svg class="w-16 h-16 text-blue-400/20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-blue-500/80 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Industry News</span>
+                        </div>
+                        <div class="absolute bottom-3 right-3 text-label-silver/30 text-xs">SentiSight.ai</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-label-silver/40 text-xs uppercase tracking-widest mb-3">February 23, 2026 · SentiSight.ai</p>
+                        <h3 class="font-display text-xl font-bold mb-3 group-hover:text-label-gold transition-colors">How AI Is Giving Independent Musicians a Record-Label-Level Advantage</h3>
+                        <p class="text-label-silver/60 text-sm leading-relaxed mb-4">AI-powered mastering, distribution analytics, and audience targeting now let bedroom producers compete head-to-head with major-label artists — at a fraction of the cost. 60% of musicians already use AI in their workflow.</p>
+                        <div class="bg-void/60 border border-label-gold/10 rounded-lg p-3 mb-4">
+                            <p class="text-label-gold text-xs font-bold uppercase tracking-widest mb-2">Key Stats</p>
+                            <ul class="text-label-silver/50 text-xs space-y-1">
+                                <li>· AI-in-music market valued at $2.9B in 2024</li>
+                                <li>· 60% of musicians now use AI tools</li>
+                                <li>· Suno reached 100M users, $2.45B valuation</li>
+                                <li>· Market growing at 27.8% compound annual rate</li>
+                            </ul>
+                        </div>
+                        <a href="https://www.sentisight.ai/how-ai-is-giving-independent-musicians-a-record-label-level-advantage/" target="_blank" rel="noopener" class="flex items-center gap-2 text-label-gold text-xs uppercase tracking-widest font-bold hover:gap-3 transition-all">
+                            <span>Read Full Article</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Industry Article 2 -->
+                <article class="group border border-label-gold/10 rounded-xl overflow-hidden bg-void hover:border-label-gold/30 transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[16/9] bg-gradient-to-br from-green-900/20 to-void flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-teal-500/10"></div>
+                        <svg class="w-16 h-16 text-green-400/20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-600/80 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Industry News</span>
+                        </div>
+                        <div class="absolute bottom-3 right-3 text-label-silver/30 text-xs">Symphonic</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-label-silver/40 text-xs uppercase tracking-widest mb-3">April 8, 2026 · Symphonic Distribution</p>
+                        <h3 class="font-display text-xl font-bold mb-3 group-hover:text-label-gold transition-colors">AI Tools Independent Musicians Are Actually Using in 2026</h3>
+                        <p class="text-label-silver/60 text-sm leading-relaxed mb-4">From AI stem separation and lyric transcription to automated release campaign builders — Symphonic breaks down the real tools working artists are folding into their workflows right now.</p>
+                        <div class="bg-void/60 border border-label-gold/10 rounded-lg p-3 mb-4">
+                            <p class="text-label-gold text-xs font-bold uppercase tracking-widest mb-2">Tools Covered</p>
+                            <ul class="text-label-silver/50 text-xs space-y-1">
+                                <li>· Sampla.ai — custom sample generation</li>
+                                <li>· Moises.ai — AI stem separation</li>
+                                <li>· Melody Studio — AI songwriting assist</li>
+                                <li>· AI mastering + release campaign builder</li>
+                            </ul>
+                        </div>
+                        <a href="https://blog.symphonic.com/2026/04/08/ai-tools-independent-musicians-2026/" target="_blank" rel="noopener" class="flex items-center gap-2 text-label-gold text-xs uppercase tracking-widest font-bold hover:gap-3 transition-all">
+                            <span>Read Full Article</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners / Special Links Section -->
+    <section id="partners" class="py-32 px-6 bg-concrete relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-label-silver to-transparent opacity-20"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="text-label-silver/60 text-sm uppercase tracking-widest mb-4">Connections</p>
+                <h2 class="font-display text-5xl md:text-7xl font-bold">PARTNERS <span class="text-label-gold">&</span> LINKS</h2>
+                <p class="text-label-silver/60 max-w-md mx-auto mt-6 text-sm leading-relaxed">Platforms, collaborators, and resources that support the Tuniverse ecosystem.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Partner placeholders -->
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/10 flex items-center justify-center group-hover:bg-label-gold/20 transition-all">
+                        <svg class="w-8 h-8 text-label-gold/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1">Spotify</p>
+                        <p class="text-label-silver/40 text-xs">Stream Our Music</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/10 flex items-center justify-center group-hover:bg-label-gold/20 transition-all">
+                        <svg class="w-8 h-8 text-label-gold/50" fill="currentColor" viewBox="0 0 24 24"><path d="M1.175 12.225c-.041 0-.082.035-.082.083l-.444 2.666.444 2.499c0 .047.041.083.082.083.042 0 .083-.036.083-.083l.502-2.499-.502-2.666c0-.048-.041-.083-.083-.083zm22.978 2.968c-.268-2.214-2.13-3.924-4.38-3.924-.604 0-1.18.118-1.705.33-.355-4.008-3.72-7.136-7.828-7.136-1.062 0-2.075.214-2.994.594-.35.144-.443.292-.446.424v14.47c.003.135.112.245.247.247h17.106c.786 0 1.423-.637 1.423-1.423 0-.53-.29-1-.723-1.25z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1">SoundCloud</p>
+                        <p class="text-label-silver/40 text-xs">Follow & Listen</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/10 flex items-center justify-center group-hover:bg-label-gold/20 transition-all">
+                        <svg class="w-8 h-8 text-label-gold/50" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1">YouTube</p>
+                        <p class="text-label-silver/40 text-xs">Official Channel</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/10 flex items-center justify-center group-hover:bg-label-gold/20 transition-all">
+                        <svg class="w-8 h-8 text-label-gold/50" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1">TikTok</p>
+                        <p class="text-label-silver/40 text-xs">Short Form Content</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/10 flex items-center justify-center group-hover:bg-label-gold/20 transition-all">
+                        <svg class="w-8 h-8 text-label-gold/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1">Instagram</p>
+                        <p class="text-label-silver/40 text-xs">Behind The Scenes</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center border-dashed">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/5 border border-dashed border-label-gold/20 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-label-gold/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1 text-label-silver/30">Partner Spot</p>
+                        <p class="text-label-silver/30 text-xs">Coming Soon</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center border-dashed">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/5 border border-dashed border-label-gold/20 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-label-gold/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1 text-label-silver/30">Partner Spot</p>
+                        <p class="text-label-silver/30 text-xs">Coming Soon</p>
+                    </div>
+                </a>
+
+                <a href="#" class="group border border-label-gold/10 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-label-gold/40 hover:bg-label-gold/5 transition-all duration-300 text-center border-dashed">
+                    <div class="w-16 h-16 rounded-full bg-label-gold/5 border border-dashed border-label-gold/20 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-label-gold/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-sm mb-1 text-label-silver/30">Partner Spot</p>
+                        <p class="text-label-silver/30 text-xs">Coming Soon</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 bg-void relative">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-label-gold to-transparent opacity-30"></div>
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-label-gold/5 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-2xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-label-gold text-sm uppercase tracking-widest mb-4">Get In Touch</p>
+                <h2 class="font-display text-5xl md:text-7xl font-bold mb-4">CONTACT <span class="text-label-red">US</span></h2>
+                <p class="text-label-silver/60 text-sm leading-relaxed">Bookings, demo submissions, press, or partnerships — we want to hear from you.</p>
+            </div>
+
+            <form id="contactForm" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                <!-- Name -->
+                <div>
+                    <label class="block text-label-silver/60 text-xs uppercase tracking-widest mb-2">Full Name *</label>
+                    <input type="text" name="name" required placeholder="Your name" class="w-full bg-void border border-label-gold/20 rounded-xl px-5 py-4 text-white placeholder-label-silver/30 focus:outline-none focus:border-label-gold transition-colors text-sm">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-label-silver/60 text-xs uppercase tracking-widest mb-2">Email Address *</label>
+                    <input type="email" name="email" required placeholder="your@email.com" class="w-full bg-void border border-label-gold/20 rounded-xl px-5 py-4 text-white placeholder-label-silver/30 focus:outline-none focus:border-label-gold transition-colors text-sm">
+                </div>
+
+                <!-- Topic Dropdown -->
+                <div>
+                    <label class="block text-label-silver/60 text-xs uppercase tracking-widest mb-2">Topic *</label>
+                    <div class="relative">
+                        <select name="topic" required class="w-full bg-void border border-label-gold/20 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-label-gold transition-colors text-sm appearance-none cursor-pointer">
+                            <option value="" disabled selected class="text-label-silver/30">Select a topic...</option>
+                            <option value="demo">Demo Submission</option>
+                            <option value="booking">Artist Booking</option>
+                            <option value="press">Press & Media</option>
+                            <option value="partnership">Partnership / Collab</option>
+                            <option value="licensing">Music Licensing / Sync</option>
+                            <option value="radio">Radio Submission</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <svg class="w-4 h-4 text-label-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label class="block text-label-silver/60 text-xs uppercase tracking-widest mb-2">Message *</label>
+                    <textarea name="message" required rows="5" placeholder="Tell us what's on your mind..." class="w-full bg-void border border-label-gold/20 rounded-xl px-5 py-4 text-white placeholder-label-silver/30 focus:outline-none focus:border-label-gold transition-colors text-sm resize-none"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="contactSubmitBtn" class="w-full py-4 gold-gradient text-void font-display font-bold uppercase tracking-widest rounded-xl hover:opacity-90 transition-all hover:scale-[1.02] text-sm">
+                    Send Message
+                </button>
+
+                <!-- Success / Error Messages -->
+                <div id="formSuccess" class="hidden text-center py-4 px-6 bg-green-900/20 border border-green-500/30 rounded-xl">
+                    <p class="text-green-400 text-sm font-bold">Message sent! We'll get back to you soon.</p>
+                </div>
+                <div id="formError" class="hidden text-center py-4 px-6 bg-red-900/20 border border-red-500/30 rounded-xl">
+                    <p class="text-label-red text-sm font-bold">Something went wrong. Please email us directly.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12 px-6 border-t border-label-gold/10 bg-void">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
@@ -415,7 +778,74 @@
         </div>
     </footer>
 
+    <style>
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.4); }
+            50% { transform: scaleY(1); }
+        }
+        select option { background-color: #0a0a0a; color: white; }
+    </style>
+
     <script>
+        // Contact Form
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            const success = document.getElementById('formSuccess');
+            const error = document.getElementById('formError');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            // Simulate send — hook up to real backend/email service later
+            setTimeout(() => {
+                btn.textContent = 'Send Message';
+                btn.disabled = false;
+                success.classList.remove('hidden');
+                e.target.reset();
+                setTimeout(() => success.classList.add('hidden'), 5000);
+            }, 1200);
+        }
+
+        // Radio Player UI (visual only — no stream yet)
+        const radioPlayBtn = document.getElementById('radioPlayBtn');
+        const radioPlayIcon = document.getElementById('radioPlayIcon');
+        const radioProgress = document.getElementById('radioProgress');
+        let radioPlaying = false;
+        let radioInterval = null;
+        let progress = 0;
+
+        const tracks = [
+            { name: 'Midnight Echoes', artist: 'VA Allstarz' },
+            { name: 'AI Interlude #1', artist: 'Tuniverse AI Mix' },
+            { name: 'Late Night Drive', artist: 'Levar Tha Don' },
+            { name: 'AI Transition', artist: 'Tuniverse AI Blend' },
+            { name: 'Golden Hour', artist: 'Lily J' },
+        ];
+        let trackIndex = 0;
+
+        function updateTrackDisplay() {
+            document.getElementById('radioTrackName').textContent = tracks[trackIndex].name;
+            document.getElementById('radioArtistName').textContent = tracks[trackIndex].artist;
+        }
+
+        radioPlayBtn.addEventListener('click', () => {
+            radioPlaying = !radioPlaying;
+            if (radioPlaying) {
+                radioPlayIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                radioInterval = setInterval(() => {
+                    progress += 0.5;
+                    if (progress >= 100) {
+                        progress = 0;
+                        trackIndex = (trackIndex + 1) % tracks.length;
+                        updateTrackDisplay();
+                    }
+                    radioProgress.style.width = progress + '%';
+                }, 150);
+            } else {
+                radioPlayIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+                clearInterval(radioInterval);
+            }
+        });
+
         // Mobile menu toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
