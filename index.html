@@ -238,21 +238,21 @@
         </div>
 
         <div class="relative z-10 text-center px-6 max-w-7xl mx-auto">
-            <p class="text-label-gold text-sm uppercase tracking-[0.3em] mb-6 opacity-0 translate-y-10" id="heroSubtitle">Independent Music Label</p>
+            <p class="text-label-gold text-sm uppercase tracking-[0.3em] mb-6 hero-fade" style="animation-delay:0.1s" id="heroSubtitle">Independent Music Label</p>
             
             <h1 class="font-display font-bold text-6xl md:text-8xl lg:text-9xl leading-none mb-8">
                 <span class="block overflow-hidden">
-                    <span class="block translate-y-full" id="heroLine1">SOUND</span>
+                    <span class="block hero-slide" style="animation-delay:0.2s" id="heroLine1">SOUND</span>
                 </span>
                 <span class="block overflow-hidden text-stroke-gold">
-                    <span class="block translate-y-full" id="heroLine2">WITHOUT</span>
+                    <span class="block hero-slide" style="animation-delay:0.35s" id="heroLine2">WITHOUT</span>
                 </span>
                 <span class="block overflow-hidden">
-                    <span class="block translate-y-full text-label-red" id="heroLine3">LIMITS</span>
+                    <span class="block hero-slide text-label-red" style="animation-delay:0.5s" id="heroLine3">LIMITS</span>
                 </span>
             </h1>
 
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-12 opacity-0" id="heroCta">
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-12 hero-fade" style="animation-delay:0.65s" id="heroCta">
                 <button class="px-8 py-4 gold-gradient text-void font-bold uppercase tracking-widest hover:scale-105 transition-transform magnetic-btn shadow-lg shadow-label-gold/20">
                     Latest Releases
                 </button>
@@ -779,6 +779,20 @@
     </footer>
 
     <style>
+        .hero-fade {
+            opacity: 0;
+            animation: heroFadeIn 0.8s ease forwards;
+        }
+        .hero-slide {
+            transform: translateY(100%);
+            animation: heroSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+        @keyframes heroFadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes heroSlideUp {
+            to { transform: translateY(0); }
+        }
         @keyframes wave {
             0%, 100% { transform: scaleY(0.4); }
             50% { transform: scaleY(1); }
